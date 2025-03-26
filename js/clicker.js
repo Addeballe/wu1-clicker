@@ -163,24 +163,50 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Sop',
+        name: 'Farmstead',
         cost: 10,
         amount: 1,
     },
     {
-        name: 'Kvalitetsspade',
+        name: 'Tools',
         cost: 50,
         clicks: 2,
     },
     {
-        name: 'Skottkärra',
+        name: 'Craftsman residence',
         cost: 100,
+        amount: 5,
+    },
+    {
+        name: 'Wagon',
+        cost: 200,
         amount: 10,
     },
     {
-        name: 'Grävmaskin',
+        name: 'Well',
         cost: 1000,
+        clicks: 5,
+    },
+   
+    {
+        name: 'Marketplace',
+        cost: 10000,
+        amount: 50,
+    },
+    {
+        name: 'Manor',
+        cost: 20000,
         amount: 100,
+    },
+    {
+        name: 'Church',
+        cost: 30000,
+        clicks: 30,
+    },
+    {
+        name: 'Stone Houses',
+        cost: 100000,
+        amount: 200,
     },
 ];
 
@@ -209,18 +235,18 @@ function createCard(upgrade) {
     header.classList.add('title');
     const cost = document.createElement('p');
     if (upgrade.amount) {
-        header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
+        header.textContent = `${upgrade.name}, +${upgrade.amount} ducats per second.`;
     } else {
-        header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
+        header.textContent = `${upgrade.name}, +${upgrade.clicks} ducats per click.`;
     }
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Build for ${upgrade.cost} ducats.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            cost.textContent = 'Build for ' + upgrade.cost + ' ducats';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
             message('Grattis du har köpt en uppgradering!', 'success');

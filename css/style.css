@@ -1,10 +1,18 @@
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
+@font-face {
+    font-family: MedievalSharp;
+    src: url(../assets/Oldenburg-Regular.ttf);
+}
+
 :root {
     --color-lighter: hsl(80, 10%, 90%);
     --color-light: hsl(80, 10%, 80%);
     --color-dark: hsl(360, 10%, 10%);
+    --text-color: hsl(0, 0%, 90%);
+    --text-color-hover: hsla(0, 0%, 57%, 0.425);
+    --background-color: hsl(30, 11%, 14%);
     --color-dark-transparent: hsla(360, 10%, 10%, 0.2);
 
     --step--1: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
@@ -23,17 +31,19 @@
 }
 
 body {
-    background-color: var(--color-light);
-    color: var(--color-dark);
-    font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: MedievalSharp;
     font-size: var(--step-0);
 }
 
 h1 {
-    font-size: var(--step-2);
+    font-size: 250%;
     text-transform: uppercase;
     font-weight: 700;
-    max-width: 20ch;
+    letter-spacing: 5px;
+    max-width: 30ch;
+    padding-bottom: 2.5rem;
 }
 
 /* göm audio, används för att preloada ljudet */
@@ -70,8 +80,8 @@ audio {
     height: 100%;
     background: linear-gradient(
         0deg,
-        var(--color-dark),
-        var(--color-dark-transparent)
+        var(--text-color),
+        var(--text-color-transparent)
     );
 }
 
@@ -84,7 +94,7 @@ audio {
 
 .hero img {
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     aspect-ratio: 16/9;
     object-fit: cover;
 }
@@ -141,23 +151,25 @@ audio {
     width: var(--space-4xl-5xl);
     height: var(--space-4xl-5xl);
     font-size: var(--step-2);
-    background: url('../img/brett-meliti-RgkYMfFopIA-unsplash-removebg-preview.png');
+    background: url('../img/medievalhammer.png');
     background-size: cover;
     background-position: center;
     border: 2px solid transparent;
-    color: var(--color-light);
+    color: var(--color-lighter);
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
+    text-shadow: 0 0 2px black;
 }
 
 #game-button:hover {
-    border-color: var(--color-dark-transparent);
+    border-color: var(--text-color-transparent);
+    transition-duration: 0.2s;
 }
 
 #game-button:active {
-    border-color: var(--color-dark);
-    background-color: var(--color-dark-transparent);
+    border-color: var(--text-color);
+    background-color: var(--text-color-transparent);
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
@@ -200,13 +212,14 @@ audio {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border: 1px solid var(--color-dark-transparent);
+    border: 1px solid var(--text-color-hover);
     margin: var(--space-xs-s) 0;
     padding: var(--space-s-m) var(--space-xs-s);
+    transition-duration: 0.2s;
 }
 
 .card:hover {
-    background-color: var(--color-lighter);
+    background-color: var(--text-color-hover);
 }
 
 .card p:not(.title) {
@@ -223,13 +236,13 @@ audio {
 
 @keyframes flash {
     0% {
-        color: var(--color-dark);
+        color: var(--text-color);
     }
     50% {
-        color: var(--color-dark-transparent);
+        color: var(--text-color-transparent);
     }
     100% {
-        color: var(--color-dark);
+        color: var(--text-color);
     }
 }
 
