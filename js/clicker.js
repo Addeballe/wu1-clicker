@@ -14,7 +14,7 @@ const mpcTracker = document.querySelector('#mpc'); // money per click
 const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
-const audioAchievement = document.querySelector('#swoosh');
+const audioAchievement = document.querySelector('#dink');
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -37,23 +37,23 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Museet är redo att öppna, grattis! ',
+        description: 'Humble beginnings! Hurray!',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något, fortsätt gräva!',
+        description: 'Your village is growing rapidly!',
         requiredUpgrades: 10,
         acquired: false,
     },
     {
-        description: 'Klickare, med licens att klicka!',
-        requiredClicks: 10,
+        description: 'Your settlement can now be called a "City"!',
+        requiredUpgrades: 100,
         acquired: false,
     },
     {
-        description: 'Tac-2 god!',
-        requiredClicks: 10000,
+        description: 'Hard work!',
+        requiredClicks: 10,
         acquired: false,
     },
 ];
@@ -170,7 +170,7 @@ upgrades = [
     {
         name: 'Tools',
         cost: 50,
-        clicks: 2,
+        clicks: 1,
     },
     {
         name: 'Craftsman residence',
@@ -249,9 +249,9 @@ function createCard(upgrade) {
             cost.textContent = 'Build for ' + upgrade.cost + ' ducats';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
+            message('A new advancement has been made!', 'success');
         } else {
-            message('Du har inte råd.', 'warning');
+            message('You are too poor!', 'warning');
         }
     });
 

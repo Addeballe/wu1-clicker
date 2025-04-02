@@ -44,6 +44,8 @@ h1 {
     letter-spacing: 5px;
     max-width: 30ch;
     padding-bottom: 2.5rem;
+    text-shadow: -3px 5px black;
+    
 }
 
 /* göm audio, används för att preloada ljudet */
@@ -71,6 +73,10 @@ audio {
 .hero {
     display: grid;
     grid-template-areas: 'stack';
+}
+
+.hero p {
+    text-shadow: -1px 2px black;
 }
 
 .hero-gradient {
@@ -164,7 +170,7 @@ audio {
 
 #game-button:hover {
     border-color: var(--text-color-transparent);
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
 }
 
 #game-button:active {
@@ -192,16 +198,16 @@ audio {
  * meddelanden. Javascript används för att lägga till stilen på meddelandet
  */
 .warning {
-    background-color: palevioletred;
+    background-color: black;
 }
 
 .success {
-    background-color: mediumspringgreen;
+    background-color: black;
 }
 
 .achievement {
     color: var(--color-light);
-    background-color: rebeccapurple;
+    background-color: black;
 }
 
 /* dessa kort används för spelets uppgraderingar 
@@ -213,6 +219,7 @@ audio {
     justify-content: space-between;
     cursor: pointer;
     border: 1px solid var(--text-color-hover);
+    border-radius: 20px;
     margin: var(--space-xs-s) 0;
     padding: var(--space-s-m) var(--space-xs-s);
     transition-duration: 0.2s;
