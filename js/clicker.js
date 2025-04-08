@@ -208,6 +208,11 @@ upgrades = [
         cost: 100000,
         amount: 200,
     },
+    {
+        name: 'Powerhouse',
+        cost: 1000000000,
+        amount: 5000,
+    },
 ];
 
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
